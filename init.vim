@@ -97,7 +97,7 @@ tnoremap <M-q> <C-\><C-N>:q<CR>
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
 
-"airline begin
+" --------------------- airline begin ---------------------------
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif 
@@ -123,7 +123,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 "airline end
 
-"deoplete begin
+" -----------------------------deoplete begin ---------------------------
 " let g:deoplete#enable_at_startup = 1
 
 " "use <tab> for completion
@@ -153,7 +153,7 @@ let g:airline_symbols.linenr = ''
 " inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 " " deoplete end
 
-" " lsp begin
+" " --------------------------- lsp begin ---------------------------
 " let g:LanguageClient_serverCommands = {
     " \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
     " \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
@@ -171,7 +171,7 @@ let g:airline_symbols.linenr = ''
 " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " lsp end
 
-"ycm begin
+"----------------------- ycm begin -------------------------------
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 " nnoremap <M-d> :YcmCompleter GoTo<CR>
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
@@ -183,7 +183,7 @@ let g:ycm_seed_identifiers_with_syntax=1
 
 "ycm end
 
-"nerdcommenter begin
+"------------------------- nerdcommenter begin----------------------
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -199,12 +199,12 @@ map <M-c> <plug>NERDCommenterToggle
 
 "nerdcommenter end
 
-"indentLine begin
+"------------------ indentLine begin ------------------------
 let g:indentLine_color_term = 239
 let g:indentLine_conceallevel=2
 "indentLine end
 
-"tagbar begin
+"------------------------tagbar begin------------------------
 let tagbar_left=1 
 nnoremap <M-t> :TagbarToggle<CR>
 let tagbar_width=32 
@@ -212,6 +212,6 @@ let g:tagbar_compact=1
 let g:tagbar_autoclose=1
 "tagbar end
 
-" glsl begin
+" ------------------------glsl begin------------------------
 autocmd! BufNewFile,BufRead *.vsh,*.fsh set ft=glsl
 " glsl end
