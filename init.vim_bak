@@ -43,7 +43,6 @@ set termguicolors
 syntax enable
 syntax on
 "colorscheme dracula
-let g:gruvbox_contrast_dark = 'soft'
 set background=dark
 colorscheme gruvbox 
 set hidden
@@ -102,8 +101,6 @@ au TermOpen * setlocal nonumber norelativenumber
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif 
-
-let g:airline_theme = 'luna'
 
 " enable/disable detection of whitespace errors
 let g:airline#extensions#whitespace#enabled = 0
