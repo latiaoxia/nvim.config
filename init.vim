@@ -219,6 +219,7 @@ nnoremap <M-t> :TagbarToggle<CR>
 let tagbar_width=32
 let g:tagbar_compact=1
 let g:tagbar_autoclose=1
+let g:tagbar_sort=0
 "tagbar end
 
 " ------------------------glsl begin------------------------
