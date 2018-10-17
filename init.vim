@@ -2,21 +2,22 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tikhomirov/vim-glsl'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
-Plug 'Valloric/YouCompleteMe'
-"Plug 'rdnetto/YCM-Generator'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'qpkorr/vim-bufkill'
-Plug 'tikhomirov/vim-glsl'
+Plug 'ntpeters/vim-better-whitespace'
 
-" Plug 'autozimu/LanguageClient-neovim', {
-    " \ 'branch': 'next',
-    " \ 'do': 'bash install.sh',
-    " \ }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Valloric/YouCompleteMe'
+"Plug 'rdnetto/YCM-Generator'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " " Multi-entry selection UI. FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -45,7 +46,7 @@ syntax on
 "colorscheme dracula
 let g:gruvbox_contrast_dark = 'soft'
 set background=dark
-colorscheme gruvbox 
+colorscheme gruvbox
 set hidden
 set clipboard+=unnamedplus
 set guicursor=
@@ -98,10 +99,14 @@ tnoremap <M-q> <C-\><C-N>:q<CR>
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
 
+" -------------------vim-better-whitespace----------------
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
 " --------------------- airline begin ---------------------------
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
-endif 
+endif
 
 let g:airline_theme = 'luna'
 
@@ -127,63 +132,63 @@ let g:airline_symbols.linenr = ''
 "airline end
 
 " -----------------------------deoplete begin ---------------------------
-" let g:deoplete#enable_at_startup = 1
-" set completeopt-=preview
+let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
 
-" "use <tab> for completion
-" function! TabWrap()
-    " if pumvisible()
-        " return "\<C-N>"
-    " elseif strpart( getline('.'), 0, col('.') - 1 ) =~ '^\s*$'
-        " return "\<tab>"
-    " elseif &omnifunc !~ ''
-        " return "\<C-X>\<C-O>"
-    " else
-        " return "\<C-N>"
-    " endif
-" endfunction
+"use <tab> for completion
+function! TabWrap()
+    if pumvisible()
+        return "\<C-N>"
+    elseif strpart( getline('.'), 0, col('.') - 1 ) =~ '^\s*$'
+        return "\<tab>"
+    elseif &omnifunc !~ ''
+        return "\<C-X>\<C-O>"
+    else
+        return "\<C-N>"
+    endif
+endfunction
 
-" " power tab
-" imap <silent><expr><tab> TabWrap()
+" power tab
+imap <silent><expr><tab> TabWrap()
 
-" " Enter: complete&close popup if visible (so next Enter works); else: break undo
-" inoremap <silent><expr> <Cr> pumvisible() ?
-            " \ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
+" Enter: complete&close popup if visible (so next Enter works); else: break undo
+inoremap <silent><expr> <Cr> pumvisible() ?
+            \ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
 
-" " Ctrl-Space: summon FULL (synced) autocompletion
-" inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
+" Ctrl-Space: summon FULL (synced) autocompletion
+inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 
-" " Escape: exit autocompletion, go to Normal mode
-" inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+" Escape: exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 " deoplete end
 
 " --------------------------- lsp begin ---------------------------
-" let g:LanguageClient_serverCommands = {
-    " \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
-    " \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
-    " \ }
+let g:LanguageClient_serverCommands = {
+    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
+    \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
+    \ }
 
-" let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-" let g:LanguageClient_settingsPath = '$HOME/.config/nvim/settings.json'
-" set completefunc=LanguageClient#complete
-" set formatexpr=LanguageClient_textDocument_rangeFormatting()
+let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
+let g:LanguageClient_settingsPath = '$HOME/.config/nvim/settings.json'
+set completefunc=LanguageClient#complete
+set formatexpr=LanguageClient_textDocument_rangeFormatting()
 
-" nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-" nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " lsp end
 
 "----------------------- ycm begin -------------------------------
-let g:ycm_server_python_interpreter = '/usr/bin/python'
-" nnoremap <M-d> :YcmCompleter GoTo<CR>
-nnoremap <silent> gd :YcmCompleter GoTo<CR>
-nnoremap <silent> gh :YcmCompleter GetType<CR>
+" let g:ycm_server_python_interpreter = '/usr/bin/python'
+" " nnoremap <M-d> :YcmCompleter GoTo<CR>
+" nnoremap <silent> gd :YcmCompleter GoTo<CR>
+" nnoremap <silent> gh :YcmCompleter GetType<CR>
 
-set completeopt-=preview
-let g:ycm_cache_omnifunc=0
-let g:ycm_seed_identifiers_with_syntax=1
+" set completeopt-=preview
+" let g:ycm_cache_omnifunc=0
+" let g:ycm_seed_identifiers_with_syntax=1
 
 "ycm end
 
@@ -196,7 +201,7 @@ let g:NERDCompactSexyComs = 1
 
 let g:NERDCreateDefaultMappings = 0
 
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 " let g:NERDToggleCheckAllLines = 1
 
 map <M-c> <plug>NERDCommenterToggle
@@ -209,9 +214,9 @@ let g:indentLine_conceallevel=2
 "indentLine end
 
 "------------------------tagbar begin------------------------
-let tagbar_left=1 
+let tagbar_left=1
 nnoremap <M-t> :TagbarToggle<CR>
-let tagbar_width=32 
+let tagbar_width=32
 let g:tagbar_compact=1
 let g:tagbar_autoclose=1
 "tagbar end
