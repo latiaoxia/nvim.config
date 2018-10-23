@@ -52,6 +52,9 @@ colorscheme gruvbox
 set hidden
 set clipboard+=unnamedplus
 set guicursor=
+" fix terminal last line issue
+let g:neoterm_autoscroll=1
+
 " Press F4 to toggle highlighting on/off, and show current value.
 noremap <F5> :set hlsearch! hlsearch?<CR>
 
@@ -97,6 +100,9 @@ nnoremap <M-w> :w<CR>
 inoremap <M-q> <C-\><C-N>:q<CR>
 inoremap <M-w> <C-\><C-N>:w<CR>
 tnoremap <M-q> <C-\><C-N>:q<CR>
+
+nnoremap <space> <C-U>
+nnoremap <CR> <C-D>
 
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
