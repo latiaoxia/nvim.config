@@ -10,6 +10,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'qpkorr/vim-bufkill'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'google/vim-searchindex'
+Plug 'tpope/vim-fugitive'
 
 " Plug 'Valloric/YouCompleteMe'
 "Plug 'rdnetto/YCM-Generator'
@@ -27,9 +29,9 @@ call plug#end()
 let mapleader=","
 filetype plugin indent on
 set expandtab
-set softtabstop=4
-set tabstop=4
-set shiftwidth=4
+set softtabstop=8
+set tabstop=8
+set shiftwidth=8
 set smartindent
 set smartcase
 " set wildignorecase
