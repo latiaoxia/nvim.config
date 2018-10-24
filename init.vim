@@ -101,8 +101,8 @@ inoremap <M-q> <C-\><C-N>:q<CR>
 inoremap <M-w> <C-\><C-N>:w<CR>
 tnoremap <M-q> <C-\><C-N>:q<CR>
 
-nnoremap <space> <C-U>
-nnoremap <CR> <C-D>
+nnoremap <M-u> <C-U>
+nnoremap <M-d> <C-D>
 
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
