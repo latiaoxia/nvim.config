@@ -103,6 +103,7 @@ tnoremap <M-q> <C-\><C-N>:q<CR>
 
 nnoremap <M-u> <C-U>
 nnoremap <M-d> <C-D>
+nnoremap <leader>d :BD!<CR>
 
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
@@ -181,11 +182,17 @@ let g:LanguageClient_settingsPath = '$HOME/.config/nvim/settings.json'
 set completefunc=LanguageClient#complete
 set formatexpr=LanguageClient_textDocument_rangeFormatting()
 
-nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+function LC_maps()
+    if has_key(g:LanguageClient_serverCommands, &filetype)
+        nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+        nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+        nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+        nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
+        nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+    endif
+endfunction
+autocmd filetype * call LC_maps()
+
 " lsp end
 
 "----------------------- ycm begin -------------------------------
@@ -210,7 +217,7 @@ let g:NERDCompactSexyComs = 1
 let g:NERDCreateDefaultMappings = 0
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not
-" let g:NERDToggleCheckAllLines = 1
+let g:NERDToggleCheckAllLines = 1
 
 map <M-c> <plug>NERDCommenterToggle
 
