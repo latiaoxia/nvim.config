@@ -11,7 +11,7 @@ Plug 'majutsushi/tagbar'
 Plug 'qpkorr/vim-bufkill'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Plug 'Valloric/YouCompleteMe'
 "Plug 'rdnetto/YCM-Generator'
@@ -101,8 +101,8 @@ inoremap <M-q> <C-\><C-N>:q<CR>
 inoremap <M-w> <C-\><C-N>:w<CR>
 tnoremap <M-q> <C-\><C-N>:q<CR>
 
-nnoremap <M-u> <C-U>
-nnoremap <M-d> <C-D>
+noremap <M-u> <C-U>
+noremap <M-d> <C-D>
 nnoremap <leader>d :BD!<CR>
 
 " disable terminal line number
