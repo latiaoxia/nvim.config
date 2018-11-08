@@ -57,6 +57,7 @@ let g:neoterm_autoscroll=1
 " fix wrong terminal path
 set shell=$HOME/.config/nvim/zshwrapper.sh
 autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd BufLeave term://* stopinsert
 
 " Press F4 to toggle highlighting on/off, and show current value.
 noremap <F5> :set hlsearch! hlsearch?<CR>
