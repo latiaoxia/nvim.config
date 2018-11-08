@@ -107,6 +107,10 @@ tnoremap <M-q> <C-\><C-N>:q<CR>
 noremap <M-u> <C-U>
 noremap <M-d> <C-D>
 nnoremap <leader>d :BD!<CR>
+nnoremap <leader>t :terminal<cr>a
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>tcd :tcd %:p:h<cr>:pwd<cr>
+nnoremap <leader>lcd :lcd %:p:h<cr>:pwd<cr>
 
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
