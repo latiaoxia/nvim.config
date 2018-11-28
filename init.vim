@@ -108,6 +108,8 @@ tnoremap <M-q> <C-\><C-N>:q<CR>
 
 noremap <M-u> <C-U>
 noremap <M-d> <C-D>
+noremap <M-i> <C-i>
+noremap <M-o> <C-o>
 nnoremap <leader>d :BD!<CR>
 nnoremap <leader>t :terminal<cr>a
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
