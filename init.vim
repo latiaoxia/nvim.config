@@ -43,6 +43,7 @@ set ruler
 set nowrap
 set number relativenumber
 set termguicolors
+set pumheight=15
 syntax enable
 syntax on
 "colorscheme dracula
