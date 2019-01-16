@@ -186,6 +186,8 @@ inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
 " deoplete end
 
 " --------------------------- lsp begin ---------------------------
+let g:LanguageClient_autoStart=0
+
 let g:LanguageClient_serverCommands = {
     \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
     \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
