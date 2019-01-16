@@ -89,12 +89,12 @@ set splitbelow
 set splitright
 nnoremap <M-n> <C-w>n
 nnoremap <M-v> :vnew<CR>
-nnoremap <M-,> <C-PageUp>
-nnoremap <M-.> <C-PageDown>
+" nnoremap <M-,> <C-PageUp>
+" nnoremap <M-.> <C-PageDown>
 inoremap <M-n> <C-\><C-N><C-w>n
 inoremap <M-v> <C-\><C-N>:vnew<CR>
-inoremap <M-,> <C-\><C-n><C-PageUp>
-inoremap <M-.> <C-\><C-n><C-PageDown>
+" inoremap <M-,> <C-\><C-n><C-PageUp>
+" inoremap <M-.> <C-\><C-n><C-PageDown>
 tnoremap <M-n> <C-\><C-N><C-w>n
 tnoremap <M-v> <C-\><C-N>:vnew<CR>
 tnoremap <M-,> <C-\><C-n><C-PageUp>
