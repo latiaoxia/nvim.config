@@ -233,7 +233,7 @@ let g:NERDCompactSexyComs = 1
 let g:NERDCreateDefaultMappings = 0
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
+let g:NERDToggleCheckAllLines = 0
 
 map <M-c> <plug>NERDCommenterToggle
 
