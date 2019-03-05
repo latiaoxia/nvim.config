@@ -28,7 +28,7 @@ call plug#end()
 
 let mapleader=","
 filetype plugin indent on
-set expandtab
+set noexpandtab
 set softtabstop=8
 set tabstop=8
 set shiftwidth=8
@@ -158,20 +158,20 @@ let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
 
 "use <tab> for completion
-function! TabWrap()
-    if pumvisible()
-        return "\<C-N>"
-    elseif strpart( getline('.'), 0, col('.') - 1 ) =~ '^\s*$'
-        return "\<tab>"
-    elseif &omnifunc !~ ''
-        return "\<C-X>\<C-O>"
-    else
-        return "\<C-N>"
-    endif
-endfunction
+" function! TabWrap()
+    " if pumvisible()
+        " return "\<C-N>"
+    " elseif strpart( getline('.'), 0, col('.') - 1 ) =~ '^\s*$'
+        " return "\<tab>"
+    " elseif &omnifunc !~ ''
+        " return "\<C-X>\<C-O>"
+    " else
+        " return "\<C-N>"
+    " endif
+" endfunction
 
 " power tab
-imap <silent><expr><tab> TabWrap()
+" imap <silent><expr><tab> TabWrap()
 
 " Enter: complete&close popup if visible (so next Enter works); else: break undo
 inoremap <silent><expr> <Cr> pumvisible() ?
