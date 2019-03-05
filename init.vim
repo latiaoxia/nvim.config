@@ -157,21 +157,10 @@ let g:airline_symbols.linenr = ''
 let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
 
-"use <tab> for completion
-" function! TabWrap()
-    " if pumvisible()
-        " return "\<C-N>"
-    " elseif strpart( getline('.'), 0, col('.') - 1 ) =~ '^\s*$'
-        " return "\<tab>"
-    " elseif &omnifunc !~ ''
-        " return "\<C-X>\<C-O>"
-    " else
-        " return "\<C-N>"
-    " endif
-" endfunction
 
 " power tab
-" imap <silent><expr><tab> TabWrap()
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " Enter: complete&close popup if visible (so next Enter works); else: break undo
 inoremap <silent><expr> <Cr> pumvisible() ?
@@ -181,7 +170,7 @@ inoremap <silent><expr> <Cr> pumvisible() ?
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 
 " Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "<C-e>" : "<Esc>"
+inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 
 " deoplete end
 
