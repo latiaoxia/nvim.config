@@ -181,7 +181,7 @@ inoremap <silent><expr> <Cr> pumvisible() ?
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 
 " Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+inoremap <silent><expr> <Esc> pumvisible() ? "<C-e>" : "<Esc>"
 
 " deoplete end
 
