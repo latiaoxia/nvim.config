@@ -119,6 +119,8 @@ nnoremap <leader>lcd :lcd %:p:h<cr>:pwd<cr>
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
 
+autocmd BufNewFile,BufRead *.h set ft=c
+
 " -------------------vim-better-whitespace----------------
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
