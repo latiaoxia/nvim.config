@@ -180,14 +180,31 @@ inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 let g:LanguageClient_autoStart=0
 
 let g:LanguageClient_serverCommands = {
-    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
-    \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
+    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
     \ }
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
 let g:LanguageClient_settingsPath = '$HOME/.config/nvim/settings.json'
+let g:LanguageClient_hasSnippetSupport = 0
 set completefunc=LanguageClient#complete
-set formatexpr=LanguageClient_textDocument_rangeFormatting()
+" set formatexpr=LanguageClient_textDocument_rangeFormatting()
+
+fu! C_init()
+  setl formatexpr=LanguageClient#textDocument_rangeFormatting()
+endf
+au FileType c,cpp,cuda,objc :call C_init()
+
+" textDocument/documentHighlight
+augroup LanguageClient_config
+  au!
+  au BufEnter * let b:Plugin_LanguageClient_started = 0
+  au User LanguageClientStarted setl signcolumn=yes
+  au User LanguageClientStarted let b:Plugin_LanguageClient_started = 1
+  au User LanguageClientStopped setl signcolumn=auto
+  au User LanguageClientStopped let b:Plugin_LanguageClient_stopped = 0
+  au CursorMoved * if b:Plugin_LanguageClient_started | sil call LanguageClient#textDocument_documentHighlight() | endif
+augroup END
 
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
