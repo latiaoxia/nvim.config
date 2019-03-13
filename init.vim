@@ -219,6 +219,11 @@ autocmd filetype * call LC_maps()
 
 " lsp end
 
+" ---------------------- fzf begin -------------------------------
+nnoremap <silent> gb :Buffers<CR>
+
+" fzf end
+
 "----------------------- ycm begin -------------------------------
 " let g:ycm_server_python_interpreter = '/usr/bin/python'
 " " nnoremap <M-d> :YcmCompleter GoTo<CR>
