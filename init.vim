@@ -43,7 +43,6 @@ set ruler
 set nowrap
 set number relativenumber
 set termguicolors
-set pumheight=15
 syntax enable
 syntax on
 "colorscheme dracula
@@ -59,6 +58,12 @@ let g:neoterm_autoscroll=1
 set shell=$HOME/.config/nvim/zshwrapper.sh
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
+
+set ttimeoutlen=100
+
+set wildoptions=pum
+set pumblend=30
+set pumheight=15
 
 " Press F4 to toggle highlighting on/off, and show current value.
 noremap <F5> :set hlsearch! hlsearch?<CR>
@@ -196,15 +201,15 @@ endf
 au FileType c,cpp,cuda,objc :call C_init()
 
 " textDocument/documentHighlight
-augroup LanguageClient_config
-  au!
-  au BufEnter * let b:Plugin_LanguageClient_started = 0
-  au User LanguageClientStarted setl signcolumn=yes
-  au User LanguageClientStarted let b:Plugin_LanguageClient_started = 1
-  au User LanguageClientStopped setl signcolumn=auto
-  au User LanguageClientStopped let b:Plugin_LanguageClient_stopped = 0
-  au CursorMoved * if b:Plugin_LanguageClient_started | sil call LanguageClient#textDocument_documentHighlight() | endif
-augroup END
+" augroup LanguageClient_config
+  " au!
+  " au BufEnter * let b:Plugin_LanguageClient_started = 0
+  " au User LanguageClientStarted setl signcolumn=yes
+  " au User LanguageClientStarted let b:Plugin_LanguageClient_started = 1
+  " au User LanguageClientStopped setl signcolumn=auto
+  " au User LanguageClientStopped let b:Plugin_LanguageClient_stopped = 0
+  " au CursorMoved * if b:Plugin_LanguageClient_started | sil call LanguageClient#textDocument_documentHighlight() | endif
+" augroup END
 
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
