@@ -1,6 +1,9 @@
 {
   "initializationOptions": {
-    "cacheDirectory": "/tmp/cquery",
+	"cache" : {
+		"directory" : "/tmp/ccls"
+	},
+
     "clang": {"excludeArgs": ["-m*", "-Wa*"]}
   }
 }
