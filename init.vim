@@ -55,7 +55,7 @@ set guicursor=
 " fix terminal last line issue
 let g:neoterm_autoscroll=1
 " fix wrong terminal path
-set shell=$HOME/.config/nvim/zshwrapper.sh
+" set shell=$HOME/.config/nvim/zshwrapper.sh
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
