@@ -62,8 +62,9 @@ let g:neoterm_autoscroll=1
 set ttimeoutlen=100
 
 set wildoptions=pum
-set pumblend=30
+set pumblend=20
 set pumheight=15
+set signcolumn=yes
 
 " Press F4 to toggle highlighting on/off, and show current value.
 noremap <F5> :set hlsearch! hlsearch?<CR>
@@ -177,7 +178,7 @@ inoremap <silent><expr> <Cr> pumvisible() ?
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 
 " Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 
 " deoplete end
 
