@@ -26,14 +26,17 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+" Miscellaneous
 let mapleader=","
 filetype plugin indent on
-set noexpandtab
-set softtabstop=8
-set tabstop=8
-set shiftwidth=8
+set expandtab
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 set smartindent
 set smartcase
+set splitbelow
+set splitright
 " set wildignorecase
 set ignorecase
 set colorcolumn=80
@@ -45,10 +48,6 @@ set number relativenumber
 set termguicolors
 syntax enable
 syntax on
-"colorscheme dracula
-let g:gruvbox_contrast_dark = 'soft'
-set background=dark
-colorscheme gruvbox
 set hidden
 set clipboard+=unnamedplus
 set guicursor=
@@ -66,13 +65,20 @@ set pumblend=20
 set pumheight=15
 set signcolumn=yes
 
-" Press F4 to toggle highlighting on/off, and show current value.
-noremap <F5> :set hlsearch! hlsearch?<CR>
+" theme
+let g:gruvbox_contrast_dark = 'soft'
+set background=dark
+colorscheme gruvbox
 
 "reload file
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" key binding
+
+" Press F4 to toggle highlighting on/off, and show current value.
+noremap <F5> :set hlsearch! hlsearch?<CR>
 
 tnoremap <M-h> <C-\><C-N><C-w>h
 tnoremap <M-j> <C-\><C-N><C-w>j
@@ -91,16 +97,10 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <M-=> <C-w>=
 inoremap <M-=> <C-\><C-N><C-w>=
 tnoremap <M-=> <C-\><C-N><C-w>=
-set splitbelow
-set splitright
 nnoremap <M-n> <C-w>n
 nnoremap <M-v> :vnew<CR>
-" nnoremap <M-,> <C-PageUp>
-" nnoremap <M-.> <C-PageDown>
 inoremap <M-n> <C-\><C-N><C-w>n
 inoremap <M-v> <C-\><C-N>:vnew<CR>
-" inoremap <M-,> <C-\><C-n><C-PageUp>
-" inoremap <M-.> <C-\><C-n><C-PageDown>
 tnoremap <M-n> <C-\><C-N><C-w>n
 tnoremap <M-v> <C-\><C-N>:vnew<CR>
 tnoremap <M-,> <C-\><C-n><C-PageUp>
@@ -112,10 +112,6 @@ inoremap <M-q> <C-\><C-N>:q<CR>
 inoremap <M-w> <C-\><C-N>:w<CR>
 tnoremap <M-q> <C-\><C-N>:q<CR>
 
-noremap <M-u> <C-U>
-noremap <M-d> <C-D>
-noremap <M-i> <C-i>
-noremap <M-o> <C-o>
 nnoremap <leader>d :BD!<CR>
 nnoremap <leader>t :terminal<cr>a
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
