@@ -103,8 +103,6 @@ inoremap <M-n> <C-\><C-N><C-w>n
 inoremap <M-v> <C-\><C-N>:vnew<CR>
 tnoremap <M-n> <C-\><C-N><C-w>n
 tnoremap <M-v> <C-\><C-N>:vnew<CR>
-tnoremap <M-,> <C-\><C-n><C-PageUp>
-tnoremap <M-.> <C-\><C-n><C-PageDown>
 
 nnoremap <M-q> :q<CR>
 nnoremap <M-w> :w<CR>
