@@ -58,6 +58,15 @@ let g:neoterm_autoscroll=1
 " autocmd BufWinEnter,WinEnter term://* startinsert
 " autocmd BufLeave term://* stopinsert
 
+" make search result middle
+silent! nmap <silent><unique> n nzz<Plug>SearchIndex
+silent! nmap <silent><unique> N Nzz<Plug>SearchIndex
+
+silent! map <unique> *  <Plug>ImprovedStar_*zz<Plug>SearchIndex
+silent! map <unique> #  <Plug>ImprovedStar_#zz<Plug>SearchIndex
+silent! map <unique> g* <Plug>ImprovedStar_g*zz<Plug>SearchIndex
+silent! map <unique> g# <Plug>ImprovedStar_g#zz<Plug>SearchIndex
+
 set ttimeoutlen=100
 
 set wildoptions=pum
