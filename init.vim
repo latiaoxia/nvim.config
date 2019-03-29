@@ -141,20 +141,6 @@ endif
 
 let g:airline_theme = 'luna'
 
-" enable/disable detection of whitespace errors
-let g:airline#extensions#whitespace#enabled = 0
-
-" Just show the filename (no path) in the tab
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ''
-" let g:airline#extensions#tabline#left_alt_sep = ''
-
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
 " let g:airline_left_sep = ''
 " let g:airline_left_alt_sep = ''
 " let g:airline_right_sep = ''
@@ -162,6 +148,18 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+let g:airline#extensions#tabline#enabled = 1
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
 "airline end
 
 " -----------------------------deoplete begin ---------------------------
