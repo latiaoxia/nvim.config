@@ -15,11 +15,12 @@ Plug 'google/vim-searchindex'
 
 " Plug 'Valloric/YouCompleteMe'
 "Plug 'rdnetto/YCM-Generator'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'autozimu/LanguageClient-neovim', {
+    " \ 'branch': 'next',
+    " \ 'do': 'bash install.sh',
+    " \ }
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " " Multi-entry selection UI. FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -184,23 +185,23 @@ inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 " deoplete end
 
 " --------------------------- lsp begin ---------------------------
-let g:LanguageClient_autoStart=0
+" let g:LanguageClient_autoStart=0
 
-let g:LanguageClient_serverCommands = {
-    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+    " \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+    " \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+    " \ }
 
-let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-let g:LanguageClient_settingsPath = '$HOME/.config/nvim/settings.json'
-let g:LanguageClient_hasSnippetSupport = 0
-set completefunc=LanguageClient#complete
+" let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
+" let g:LanguageClient_settingsPath = '$HOME/.config/nvim/settings.json'
+" let g:LanguageClient_hasSnippetSupport = 0
+" set completefunc=LanguageClient#complete
 " set formatexpr=LanguageClient_textDocument_rangeFormatting()
 
-fu! C_init()
-  setl formatexpr=LanguageClient#textDocument_rangeFormatting()
-endf
-au FileType c,cpp,cuda,objc :call C_init()
+" fu! C_init()
+  " setl formatexpr=LanguageClient#textDocument_rangeFormatting()
+" endf
+" au FileType c,cpp,cuda,objc :call C_init()
 
 " textDocument/documentHighlight
 " augroup LanguageClient_config
@@ -213,16 +214,22 @@ au FileType c,cpp,cuda,objc :call C_init()
   " au CursorMoved * if b:Plugin_LanguageClient_started | sil call LanguageClient#textDocument_documentHighlight() | endif
 " augroup END
 
-function LC_maps()
-    if has_key(g:LanguageClient_serverCommands, &filetype)
-        nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-        nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-        nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-        nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
-        nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-    endif
-endfunction
-autocmd filetype * call LC_maps()
+" function LC_maps()
+    " if has_key(g:LanguageClient_serverCommands, &filetype)
+        " nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+        " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+        " nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+        " nnoremap <silent> gs :call LanguageClient#textDocument_documentSymbol()<CR>
+        " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+    " endif
+" endfunction
+" autocmd filetype * call LC_maps()
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " lsp end
 
