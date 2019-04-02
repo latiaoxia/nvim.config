@@ -245,6 +245,8 @@ function! s:show_documentation()
 endfunction
 
 nnoremap <silent> gh :call <SID>show_documentation()<CR><Paste>
+" Find symbol of current document
+nnoremap <silent> gs  :<C-u>CocList outline<cr>
 
 "Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
