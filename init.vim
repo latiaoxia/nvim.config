@@ -248,6 +248,9 @@ nnoremap <silent> gh :call <SID>show_documentation()<CR><Paste>
 " Find symbol of current document
 nnoremap <silent> gs  :<C-u>CocList outline<cr>
 
+" Escape: exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
+
 "Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
