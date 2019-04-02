@@ -169,18 +169,18 @@ set completeopt-=preview
 
 
 " power tab
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+" inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " Enter: complete&close popup if visible (so next Enter works); else: break undo
-inoremap <silent><expr> <Cr> pumvisible() ?
-            \ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
+" inoremap <silent><expr> <Cr> pumvisible() ?
+            " \ deoplete#mappings#close_popup() : "<C-g>u<Cr>"
 
 " Ctrl-Space: summon FULL (synced) autocompletion
-inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
+" inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 
 " Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
+" inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 
 " deoplete end
 
@@ -226,10 +226,31 @@ inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 " autocmd filetype * call LC_maps()
 
 " Remap keys for gotos
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nnoremap <silent> gh :call <SID>show_documentation()<CR><Paste>
+
+"Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nnoremap <F2> <Plug>(coc-rename)
 
 " lsp end
 
