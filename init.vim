@@ -252,7 +252,7 @@ nnoremap <silent> gs  :<C-u>CocList outline<cr>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nnoremap <F2> <Plug>(coc-rename)
+nmap <silent> <F2> <Plug>(coc-rename)
 
 " lsp end
 
