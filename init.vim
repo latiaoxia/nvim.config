@@ -242,7 +242,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <silent> gh :call <SID>show_documentation()<CR><Paste>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 " Find symbol of current document
 nnoremap <silent> gs  :<C-u>CocList outline<cr>
 
