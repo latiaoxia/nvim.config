@@ -307,3 +307,7 @@ let g:tagbar_sort=0
 " ------------------------glsl begin------------------------
 autocmd! BufNewFile,BufRead *.vsh,*.fsh set ft=glsl
 " glsl end
+
+" ----------------vim-better-whitespace-------------
+let g:strip_whitespace_confirm=0
+" ----------------vim-better-whitespace end---------
