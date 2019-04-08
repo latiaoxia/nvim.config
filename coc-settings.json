@@ -10,5 +10,6 @@
          }
        }
     }
-  }
+  },
+  "list.source.outline.ctagsFilestypes" : [ "c", "cpp" ]
 }
