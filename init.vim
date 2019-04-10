@@ -134,6 +134,7 @@ autocmd BufNewFile,BufRead *.h set ft=c
 " -------------------vim-better-whitespace----------------
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:strip_max_file_size=0
 
 " --------------------- airline begin ---------------------------
 if !exists('g:airline_symbols')
