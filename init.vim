@@ -28,7 +28,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Miscellaneous
-let mapleader=","
+let mapleader=" "
 filetype plugin indent on
 set expandtab
 set softtabstop=4
