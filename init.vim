@@ -6,7 +6,6 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
-" Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'qpkorr/vim-bufkill'
 Plug 'ntpeters/vim-better-whitespace'
@@ -14,7 +13,6 @@ Plug 'google/vim-searchindex'
 " Plug 'tpope/vim-fugitive'
 
 " Plug 'Valloric/YouCompleteMe'
-"Plug 'rdnetto/YCM-Generator'
 " Plug 'autozimu/LanguageClient-neovim', {
     " \ 'branch': 'next',
     " \ 'do': 'bash install.sh',
@@ -120,7 +118,6 @@ inoremap <M-q> <C-\><C-N>:q<CR>
 inoremap <M-w> <C-\><C-N>:w<CR>
 tnoremap <M-q> <C-\><C-N>:q<CR>
 
-nnoremap <leader>d :BD!<CR>
 nnoremap <leader>t :terminal<cr>a
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nnoremap <leader>tcd :tcd %:p:h<cr>:pwd<cr>
@@ -131,10 +128,17 @@ au TermOpen * setlocal nonumber norelativenumber
 
 autocmd BufNewFile,BufRead *.h set ft=c
 
+" -------------------vim-bufkill-----------------------
+let g:BufKillCreateMappings=0
+nnoremap <leader>d :BD!<CR>
+" +++++++++++++++++++vim-bufkill+++++++++++++++++++++
+
+
 " -------------------vim-better-whitespace----------------
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_max_file_size=0
+" ++++++++++++++++++vim-better-whitespace++++++++++++++++
 
 " --------------------- airline begin ---------------------------
 if !exists('g:airline_symbols')
@@ -143,8 +147,8 @@ endif
 
 let g:airline_theme = 'luna'
 
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
+" let g:airline_left_sep = '/'
+" let g:airline_left_alt_sep = ''
 " let g:airline_right_sep = ''
 " let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
@@ -162,7 +166,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
-"airline end
+"+++++++++++++++++++ airline end +++++++++++++++++++++++++++++++++++
 
 " -----------------------------deoplete begin ---------------------------
 let g:deoplete#enable_at_startup = 1
@@ -259,7 +263,7 @@ nmap <silent> <F2> <Plug>(coc-rename)
 " lsp end
 
 " ---------------------- fzf begin -------------------------------
-nnoremap <silent> gb :Buffers<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 " fzf end
 
