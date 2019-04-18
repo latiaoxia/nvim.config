@@ -264,7 +264,7 @@ nmap <silent> <F2> <Plug>(coc-rename)
 
 " ---------------------- fzf begin -------------------------------
 nnoremap <silent> <leader>b :Buffers<CR>
-
+nnoremap <silent> <leader>f :Files<cr>
 " fzf end
 
 "----------------------- ycm begin -------------------------------
