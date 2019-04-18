@@ -138,6 +138,7 @@ nnoremap <leader>d :BD!<CR>
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_max_file_size=0
+let g:strip_whitespace_confirm=0
 " ++++++++++++++++++vim-better-whitespace++++++++++++++++
 
 " --------------------- airline begin ---------------------------
@@ -313,6 +314,3 @@ let g:tagbar_sort=0
 autocmd! BufNewFile,BufRead *.vsh,*.fsh set ft=glsl
 " glsl end
 
-" ----------------vim-better-whitespace-------------
-let g:strip_whitespace_confirm=0
-" ----------------vim-better-whitespace end---------
