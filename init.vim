@@ -5,8 +5,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tikhomirov/vim-glsl'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
+Plug 'liuchengxu/space-vim-dark'
 Plug 'scrooloose/nerdcommenter'
-Plug 'majutsushi/tagbar'
 Plug 'qpkorr/vim-bufkill'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
@@ -74,9 +74,13 @@ set pumheight=15
 set signcolumn=yes
 
 " theme
-let g:gruvbox_contrast_dark = 'soft'
-set background=dark
-colorscheme gruvbox
+" let g:gruvbox_contrast_dark = 'soft'
+" set background=dark
+" colorscheme gruvbox
+color space-vim-dark
+hi LineNr ctermbg=NONE guibg=NONE
+hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
+
 
 "reload file
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
@@ -300,15 +304,6 @@ map <M-c> <plug>NERDCommenterToggle
 let g:indentLine_color_term = 239
 let g:indentLine_conceallevel=2
 "indentLine end
-
-"------------------------tagbar begin------------------------
-let tagbar_left=1
-nnoremap <M-t> :TagbarToggle<CR>
-let tagbar_width=32
-let g:tagbar_compact=1
-let g:tagbar_autoclose=1
-let g:tagbar_sort=0
-"tagbar end
 
 " ------------------------glsl begin------------------------
 autocmd! BufNewFile,BufRead *.vsh,*.fsh set ft=glsl
