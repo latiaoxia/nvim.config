@@ -6,6 +6,7 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/space-vim-dark'
+Plug 'rakr/vim-one'
 Plug 'scrooloose/nerdcommenter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'ntpeters/vim-better-whitespace'
@@ -77,9 +78,12 @@ set signcolumn=yes
 " let g:gruvbox_contrast_dark = 'soft'
 " set background=dark
 " colorscheme gruvbox
-color space-vim-dark
-hi LineNr ctermbg=NONE guibg=NONE
-hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
+" color space-vim-dark
+" hi LineNr ctermbg=NONE guibg=NONE
+" hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
+set background=dark        " for the light version
+let g:one_allow_italics = 1 " I love italic for comments
+colorscheme one
 
 
 "reload file
@@ -150,7 +154,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:airline_theme = 'luna'
+" let g:airline_theme = 'luna'
+" let g:airline_theme = 'one'
 
 " let g:airline_left_sep = '/'
 " let g:airline_left_alt_sep = ''
