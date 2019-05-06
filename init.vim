@@ -49,8 +49,8 @@ set termguicolors
 syntax enable
 syntax on
 set hidden
-set clipboard+=unnamedplus
-set guicursor=
+" set clipboard+=unnamedplus
+" set guicursor=
 " fix terminal last line issue
 let g:neoterm_autoscroll=1
 " fix wrong terminal path
