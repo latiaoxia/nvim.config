@@ -29,10 +29,14 @@ call plug#end()
 " Miscellaneous
 let mapleader=" "
 filetype plugin indent on
-set noexpandtab
-set softtabstop=8
-set tabstop=8
-set shiftwidth=8
+" set noexpandtab
+" set softtabstop=8
+" set tabstop=8
+" set shiftwidth=8
+set expandtab
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 set smartindent
 set smartcase
 set splitbelow
