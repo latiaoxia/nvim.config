@@ -7,6 +7,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'ntpeters/vim-better-whitespace'
@@ -85,10 +87,11 @@ set signcolumn=yes
 " color space-vim-dark
 " hi LineNr ctermbg=NONE guibg=NONE
 " hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
-set background=dark        " for the light version
-let g:one_allow_italics = 1 " I love italic for comments
-colorscheme one
-
+" set background=dark        " for the light version
+" let g:one_allow_italics = 1 " I love italic for comments
+" colorscheme one
+let g:onedark_terminal_italics=1
+colorscheme onedark
 
 "reload file
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
