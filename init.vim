@@ -12,8 +12,9 @@ Plug 'google/vim-searchindex'
 
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 " " Multi-entry selection UI. FZF
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
+ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 call plug#end()
 
@@ -184,9 +185,16 @@ nmap <silent> <F2> <Plug>(coc-rename)
 "++++++++++++++++++++++++++lsp end+++++++++++++++++++++++++
 
 " ---------------------- fzf begin -------------------------------
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>f :Files<cr>
+" nnoremap <silent> <leader>b :Buffers<CR>
+" nnoremap <silent> <leader>f :Files<cr>
 " +++++++++++++++++++++ fzf end +++++++++++++++++++++++++
+
+" ---------------------- leaderf begin -------------------------------
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+nmap <silent> <M-d> :<C-U>Leaderf gtags --by-context<CR>
+" search word under cursor, the pattern is treated as regex, and enter normal mode directly
+noremap <M-f> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><Paste>
+" +++++++++++++++++++++ leaderf end +++++++++++++++++++++++++
 
 "------------------------- nerdcommenter begin----------------------
 " Add spaces after comment delimiters by default
