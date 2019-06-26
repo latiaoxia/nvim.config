@@ -119,7 +119,7 @@ autocmd BufNewFile,BufRead *.h set ft=c
 
 " -------------------vim-bufkill-----------------------
 let g:BufKillCreateMappings=0
-nnoremap <leader>d :BD!<CR>
+" nnoremap <leader>d :BD!<CR>
 " +++++++++++++++++++vim-bufkill+++++++++++++++++++++
 
 " -------------------vim-better-whitespace----------------
