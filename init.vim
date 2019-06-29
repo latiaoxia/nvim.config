@@ -193,7 +193,9 @@ nmap <silent> <F2> <Plug>(coc-rename)
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 nmap <silent> <M-d> :<C-U>Leaderf gtags --by-context<CR>
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
-noremap <M-f> :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR><Paste>
+nnoremap <leader>g :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR>
+nnoremap <leader>lg :<C-U><C-R>=printf("Leaderf rg %s -e %s ", expand("%:p:h"), expand("<cword>"))<CR>
+nnoremap <leader>lf :<C-U><C-R>=printf("Leaderf file %s ", expand("%:p:h"))<CR><CR>
 " +++++++++++++++++++++ leaderf end +++++++++++++++++++++++++
 
 "------------------------- nerdcommenter begin----------------------
