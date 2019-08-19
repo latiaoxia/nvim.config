@@ -193,6 +193,8 @@ nmap <silent> <F2> <Plug>(coc-rename)
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_NoChdir=1
 
+let g:Lf_PreviewResult = { 'BufTag': 0 }
+
 nmap <silent> <M-d> :<C-U>Leaderf gtags --by-context<CR>
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
 nnoremap <leader>g :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR>
