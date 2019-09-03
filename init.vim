@@ -192,6 +192,7 @@ nmap <silent> <F2> <Plug>(coc-rename)
 " ---------------------- leaderf begin -------------------------------
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_NoChdir=1
+let g:Lf_RecurseSubmodules=1
 
 let g:Lf_PreviewResult = { 'BufTag': 0 }
 
