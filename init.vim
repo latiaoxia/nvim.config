@@ -10,7 +10,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
 
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " " Multi-entry selection UI. FZF
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
