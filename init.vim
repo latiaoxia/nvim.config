@@ -15,6 +15,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+ Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
