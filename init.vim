@@ -6,14 +6,11 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
-Plug 'qpkorr/vim-bufkill'
+Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" " Multi-entry selection UI. FZF
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
  Plug 'easymotion/vim-easymotion'
 
@@ -119,11 +116,6 @@ au TermOpen * setlocal nonumber norelativenumber
 
 autocmd BufNewFile,BufRead *.h set ft=c
 
-" -------------------vim-bufkill-----------------------
-let g:BufKillCreateMappings=0
-" nnoremap <leader>d :BD!<CR>
-" +++++++++++++++++++vim-bufkill+++++++++++++++++++++
-
 " -------------------vim-better-whitespace----------------
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
@@ -187,15 +179,11 @@ nmap <silent> <F2> <Plug>(coc-rename)
 
 "++++++++++++++++++++++++++lsp end+++++++++++++++++++++++++
 
-" ---------------------- fzf begin -------------------------------
-" nnoremap <silent> <leader>b :Buffers<CR>
-" nnoremap <silent> <leader>f :Files<cr>
-" +++++++++++++++++++++ fzf end +++++++++++++++++++++++++
-
 " ---------------------- leaderf begin -------------------------------
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_NoChdir=1
 let g:Lf_RecurseSubmodules=1
+let g:Lf_WindowPosition = 'popup'
 
 let g:Lf_PreviewResult = { 'BufTag': 0 }
 
