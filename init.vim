@@ -214,3 +214,12 @@ map <M-c> <plug>NERDCommenterToggle
 autocmd! BufNewFile,BufRead *.vsh,*.fsh set ft=glsl
 " ++++++++++++++++++++ glsl end +++++++++++++++++++++
 
+" --------------------------easymotion start -----------------
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+vmap s <Plug>(easymotion-s2)
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" ++++++++++++++++++++++++++easymotion end+++++++++++++++++++
