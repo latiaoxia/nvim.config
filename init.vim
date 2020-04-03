@@ -4,15 +4,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tikhomirov/vim-glsl'
 Plug 'joshdick/onedark.vim'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
 Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
- Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
- Plug 'easymotion/vim-easymotion'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -147,14 +147,26 @@ let g:airline#extensions#whitespace#enabled = 0
 "+++++++++++++++++++ airline end +++++++++++++++++++++++++++++++++++
 
 " --------------------------- lsp begin ---------------------------
-" Remap keys for gotos
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <c-space> coc#refresh()
+" Escape: exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 
+" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
+" Find symbol of current document
+nnoremap <silent> gs  :<C-u>CocList outline<cr>
+
+" Remap for rename current word
+nmap <silent> <F2> <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <tab>  <Plug>(coc-format-selected)
+nmap <tab>  <Plug>(coc-format-selected)
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -164,18 +176,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <silent> gh :call <SID>show_documentation()<CR>
-" Find symbol of current document
-nnoremap <silent> gs  :<C-u>CocList outline<cr>
-
-" Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
-
 "Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <silent> <F2> <Plug>(coc-rename)
 
 "++++++++++++++++++++++++++lsp end+++++++++++++++++++++++++
 
