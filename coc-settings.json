@@ -1,3 +1,4 @@
 {
   "clangd.semanticHighlighting": "true"
+  "list.source.outline.ctagsFilestypes": [ "c", "cpp" ]
 }
