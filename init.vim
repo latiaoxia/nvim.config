@@ -106,11 +106,6 @@ inoremap <M-q> <C-\><C-N>:q<CR>
 inoremap <M-w> <C-\><C-N>:w<CR>
 tnoremap <M-q> <C-\><C-N>:q<CR>
 
-nnoremap <leader>t :terminal<cr>a
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
-nnoremap <leader>tcd :tcd %:p:h<cr>:pwd<cr>
-nnoremap <leader>lcd :lcd %:p:h<cr>:pwd<cr>
-
 " disable terminal line number
 au TermOpen * setlocal nonumber norelativenumber
 
@@ -147,13 +142,6 @@ let g:airline#extensions#whitespace#enabled = 0
 "+++++++++++++++++++ airline end +++++++++++++++++++++++++++++++++++
 
 " --------------------------- lsp begin ---------------------------
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <c-space> coc#refresh()
-" Escape: exit autocompletion, go to Normal mode
-inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
@@ -161,12 +149,19 @@ nnoremap <silent> gh :call <SID>show_documentation()<CR>
 " Find symbol of current document
 nnoremap <silent> gs  :<C-u>CocList outline<cr>
 
+" Formatting selected code.
+xmap <leader>=  <Plug>(coc-format-selected)
+nmap <leader>=  <Plug>(coc-format-selected)
+
 " Remap for rename current word
 nmap <silent> <F2> <Plug>(coc-rename)
 
-" Formatting selected code.
-xmap <tab>  <Plug>(coc-format-selected)
-nmap <tab>  <Plug>(coc-format-selected)
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <c-space> coc#refresh()
+" Escape: exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -178,7 +173,6 @@ endfunction
 
 "Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
 "++++++++++++++++++++++++++lsp end+++++++++++++++++++++++++
 
 " ---------------------- leaderf begin -------------------------------
@@ -194,6 +188,7 @@ nmap <silent> <M-d> :<C-U>Leaderf gtags --by-context<CR>
 nnoremap <leader>g :<C-U><C-R>=printf("Leaderf rg -e %s ", expand("<cword>"))<CR>
 nnoremap <leader>lg :<C-U><C-R>=printf("Leaderf rg %s -e %s ", expand("%:p:h"), expand("<cword>"))<CR>
 nnoremap <leader>lf :<C-U><C-R>=printf("Leaderf file %s ", expand("%:p:h"))<CR><CR>
+noremap <leader>t :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 " +++++++++++++++++++++ leaderf end +++++++++++++++++++++++++
 
 "------------------------- nerdcommenter begin----------------------
