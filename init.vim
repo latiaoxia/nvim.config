@@ -4,15 +4,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tikhomirov/vim-glsl'
 Plug 'joshdick/onedark.vim'
-" Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
 Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'easymotion/vim-easymotion'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
@@ -220,3 +219,24 @@ vmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " ++++++++++++++++++++++++++easymotion end+++++++++++++++++++
+
+" --------------------------tree sitter start -----------------
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true,                    -- false will disable the whole extension
+        disable = {},        -- list of language that will be disabled
+    },
+    incremental_selection = {
+        enable = false,
+        disable = { 'cpp', 'lua' },
+        keymaps = {                       -- mappings for incremental selection (visual mappings)
+          init_selection = 'gnn',         -- maps in normal mode to init the node/scope selection
+          node_incremental = "grn",       -- increment to the upper named parent
+          scope_incremental = "grc",      -- increment to the upper scope (as defined in locals.scm)
+          node_decremental = "grm",      -- decrement to the previous node
+        }
+    },
+}
+EOF
+" ++++++++++++++++++++++++++tree sitter end+++++++++++++++++++
