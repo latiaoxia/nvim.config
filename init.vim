@@ -179,6 +179,7 @@ let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_NoChdir=1
 let g:Lf_RecurseSubmodules=1
 let g:Lf_WindowPosition = 'popup'
+let g:Lf_JumpToExistingWindow=0
 
 let g:Lf_PreviewResult = { 'BufTag': 0 }
 
