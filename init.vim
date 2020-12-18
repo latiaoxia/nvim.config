@@ -10,7 +10,7 @@ Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
@@ -180,6 +180,12 @@ let g:Lf_NoChdir=1
 let g:Lf_RecurseSubmodules=1
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_JumpToExistingWindow=0
+
+let g:Lf_GtagsSource=2
+let g:Lf_GtagsfilesCmd = {
+    \ '.git': 'rg --no-messages --files -tc -tcpp',
+    \ 'default': 'rg --no-messages --files -tc -tcpp'
+    \}
 
 let g:Lf_PreviewResult = { 'BufTag': 0 }
 
