@@ -6,7 +6,6 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
-Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
