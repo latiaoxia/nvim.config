@@ -34,7 +34,8 @@ set splitright
 set ignorecase
 set colorcolumn=80
 set cursorline
-set cursorcolumn
+" cursorcolumn cause performance issue
+" set cursorcolumn  
 set ruler
 set nowrap
 set number relativenumber
