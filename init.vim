@@ -1,7 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
@@ -117,28 +116,11 @@ let g:strip_max_file_size=0
 let g:strip_whitespace_confirm=0
 " ++++++++++++++++++vim-better-whitespace++++++++++++++++
 
-" --------------------- airline begin ---------------------------
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-" Just show the filename (no path) in the tab
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#whitespace#enabled = 0
-"+++++++++++++++++++ airline end +++++++++++++++++++++++++++++++++++
+" --------------------- lightline begin ---------------------------
+let g:lightline = {
+      \ 'colorscheme': 'onedark',
+      \ }
+"+++++++++++++++++++ light end +++++++++++++++++++++++++++++++++++
 
 " --------------------------- lsp begin ---------------------------
 " Remap keys for gotos
