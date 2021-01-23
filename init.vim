@@ -73,10 +73,6 @@ autocmd FileChangedShellPost *
 " Press F4 to toggle highlighting on/off, and show current value.
 noremap <F5> :set hlsearch! hlsearch?<CR>
 
-tnoremap <M-h> <C-\><C-N><C-w>h
-tnoremap <M-j> <C-\><C-N><C-w>j
-tnoremap <M-k> <C-\><C-N><C-w>k
-tnoremap <M-l> <C-\><C-N><C-w>l
 inoremap <M-h> <C-\><C-N><C-w>h
 inoremap <M-j> <C-\><C-N><C-w>j
 inoremap <M-k> <C-\><C-N><C-w>k
@@ -85,26 +81,18 @@ nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
-tnoremap <Esc> <C-\><C-n>
 
 nnoremap <M-=> <C-w>=
 inoremap <M-=> <C-\><C-N><C-w>=
-tnoremap <M-=> <C-\><C-N><C-w>=
 nnoremap <M-n> <C-w>n
 nnoremap <M-v> :vnew<CR>
 inoremap <M-n> <C-\><C-N><C-w>n
 inoremap <M-v> <C-\><C-N>:vnew<CR>
-tnoremap <M-n> <C-\><C-N><C-w>n
-tnoremap <M-v> <C-\><C-N>:vnew<CR>
 
 nnoremap <M-q> :q<CR>
 nnoremap <M-w> :w<CR>
 inoremap <M-q> <C-\><C-N>:q<CR>
 inoremap <M-w> <C-\><C-N>:w<CR>
-tnoremap <M-q> <C-\><C-N>:q<CR>
-
-" disable terminal line number
-au TermOpen * setlocal nonumber norelativenumber
 
 autocmd BufNewFile,BufRead *.h set ft=c
 
