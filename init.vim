@@ -5,7 +5,6 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/vim-searchindex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -33,7 +32,7 @@ set ignorecase
 set colorcolumn=80
 set cursorline
 " cursorcolumn cause performance issue
-" set cursorcolumn  
+" set cursorcolumn
 set ruler
 set nowrap
 set number relativenumber
@@ -109,12 +108,14 @@ au TermOpen * setlocal nonumber norelativenumber
 
 autocmd BufNewFile,BufRead *.h set ft=c
 
-" -------------------vim-better-whitespace----------------
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-let g:strip_max_file_size=0
-let g:strip_whitespace_confirm=0
-" ++++++++++++++++++vim-better-whitespace++++++++++++++++
+" -------------------whitespace----------------
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+" ++++++++++++++++++whitespace++++++++++++++++
 
 " --------------------- lightline begin ---------------------------
 let g:lightline = {
