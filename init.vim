@@ -84,15 +84,9 @@ nnoremap <M-l> <C-w>l
 
 nnoremap <M-=> <C-w>=
 inoremap <M-=> <C-\><C-N><C-w>=
-nnoremap <M-n> <C-w>n
-nnoremap <M-v> :vnew<CR>
-inoremap <M-n> <C-\><C-N><C-w>n
-inoremap <M-v> <C-\><C-N>:vnew<CR>
 
 nnoremap <M-q> :q<CR>
 nnoremap <M-w> :w<CR>
-inoremap <M-q> <C-\><C-N>:q<CR>
-inoremap <M-w> <C-\><C-N>:w<CR>
 
 autocmd BufNewFile,BufRead *.h set ft=c
 
