@@ -3,7 +3,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'joshdick/onedark.vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
 Plug 'google/vim-searchindex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -73,17 +72,12 @@ autocmd FileChangedShellPost *
 " Press F4 to toggle highlighting on/off, and show current value.
 noremap <F5> :set hlsearch! hlsearch?<CR>
 
-inoremap <M-h> <C-\><C-N><C-w>h
-inoremap <M-j> <C-\><C-N><C-w>j
-inoremap <M-k> <C-\><C-N><C-w>k
-inoremap <M-l> <C-\><C-N><C-w>l
 nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
 nnoremap <M-=> <C-w>=
-inoremap <M-=> <C-\><C-N><C-w>=
 
 nnoremap <M-q> :q<CR>
 nnoremap <M-w> :w<CR>
