@@ -1,5 +1,5 @@
 {
-  "clangd.disableDiagnostics": "true",
+  "clangd.disableDiagnostics": "false",
   "suggest.minTriggerInputLength": "2",
   "suggest.triggerCompletionWait": "0",
   "list.source.outline.ctagsFilestypes" : [ "c", "cpp" ]
